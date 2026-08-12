@@ -1,0 +1,26 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    restart: always
+    ports:
+      - 25565:25565
+    volumes:
+      - /mnt/world-data/data:/data
+    mem_limit: 11G
+    environment:
+      EULA: true
+      MEMORY: 10G
+      VERSION: 26.2
+      TYPE: VANILLA # VANILLA, FABRIC, FORGE, SPIGOT, ...
+      DIFFICULTY: normal # peaceful, normal, easy, hard
+      MODE: survival # or creative
+      VIEW_DISTANCE: 10
+      SIMULATION_DISTANCE: 10
+      MOTD: "My Minecraft server is working!" # Message of the day
+      ENABLE_WHITELIST: true
+      WHITELIST: |
+        user1
+        user2
+        user3
+      OPS: |
+        user1
